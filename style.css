@@ -66,5 +66,5 @@ section.skills .progressBar .progress { background-color: #E8676B; height: 100%;
 section.skills.offset .progress{ transform: translateX(-100%); }
 
 section.portfolio { text-align: center; margin-bottom: 800px; }
-section.portfolio .swiper-container { width: 600px; height: 300px; }  
+section.portfolio .swiper-container { width: 900px; height: 600px; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);}  
 
