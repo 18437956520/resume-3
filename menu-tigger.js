@@ -1,11 +1,11 @@
-!function(){
+! function () {
     let liTags = document.getElementsByClassName('menuTigger')
-for (let i = 0; i < liTags.length; i++) {
-    liTags[i].onmouseenter = function (x) {
-        x.currentTarget.classList.add('active')
+    for (let i = 0; i < liTags.length; i++) {
+        liTags[i].onmouseenter = function (x) {
+            x.currentTarget.classList.add('active')
+        }
+        liTags[i].onmouseleave = function (x) {
+            x.currentTarget.classList.remove('active')
+        }
     }
-    liTags[i].onmouseleave = function (x) {
-        x.currentTarget.classList.remove('active')
-    }
-}
 }.call()

@@ -19,7 +19,7 @@
 			<a href="#" class="logo" alt="logo">
 				<span class="rs">RS</span><span class="card">card</span>
 			</a>
-			<nav>
+			<nav class="menu">
 				<ul class="clearfix">
 					<li><a href="#siteAbout">关于</a></li>
 					<li><a href="#siteSkills">技能</a></li>
@@ -149,19 +149,21 @@
 	</section>
 	<section data-x id="siteWorks" class="portfolio">
 		<h2>作品集</h2>
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<img src="./works/apple-carousel.png" class="swiper-slide">
-				<img src="./works/canvas.png" class="swiper-slide">
-				<img src="./works/navigation.png" class="swiper-slide">
+		<div id="mySwiper">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<img src="./works/apple-carousel.png" class="swiper-slide">
+					<img src="./works/canvas.png" class="swiper-slide">
+					<img src="./works/navigation.png" class="swiper-slide">
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+				
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+				
 			</div>
-			<!-- 如果需要分页器 -->
-			<div class="swiper-pagination"></div>
-			
-			<!-- 如果需要导航按钮 -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-			
 		</div>
 	</section>
 

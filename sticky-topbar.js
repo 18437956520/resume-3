@@ -1,9 +1,10 @@
-!function(){
+! function () {
+    var view = document.querySelector('#topNavBar')
     window.addEventListener('scroll', function (x) {
         if (window.scrollY > 0) {
-            topNavBar.classList.add('sticky')
+            view.classList.add('sticky')
         } else {
-            topNavBar.classList.remove('sticky')
+            view.classList.remove('sticky')
         }
     })
 }.call()
