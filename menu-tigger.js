@@ -1,4 +1,5 @@
-let liTags = document.getElementsByClassName('menuTigger')
+!function(){
+    let liTags = document.getElementsByClassName('menuTigger')
 for (let i = 0; i < liTags.length; i++) {
     liTags[i].onmouseenter = function (x) {
         x.currentTarget.classList.add('active')
@@ -7,3 +8,4 @@ for (let i = 0; i < liTags.length; i++) {
         x.currentTarget.classList.remove('active')
     }
 }
+}.call()

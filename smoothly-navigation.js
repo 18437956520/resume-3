@@ -1,4 +1,5 @@
-let aTags = document.querySelectorAll('nav>ul>li>a')
+!function(){
+    let aTags = document.querySelectorAll('nav>ul>li>a')
 
 function animate(time) {
     requestAnimationFrame(animate);
@@ -25,3 +26,4 @@ for (let i = 0; i < aTags.length; i++) {
             .start();
     }
 }
+}.call()
