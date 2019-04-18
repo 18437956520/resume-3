@@ -164,27 +164,12 @@
 			
 		</div>
 	</section>
-	
+
 	<script src="//at.alicdn.com/t/font_1070528_egfy16czjq7.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
-
+	<script src="./init-swiper.js"></script>
 	<script>
-  		var mySwiper = new Swiper ('.swiper-container', {
-  		  loop: true, // 循环模式选项
-		
-  		  // 如果需要分页器
-  		  pagination: {
-  		    el: '.swiper-pagination',
-  		  },
-		
-  		  // 如果需要前进后退按钮
-  		  navigation: {
-  		    nextEl: '.swiper-button-next',
-  		    prevEl: '.swiper-button-prev',
-  		  },
-		
-  		})      
 	  
 		setTimeout(function(){siteWelcome.classList.remove('active')},2000)
 
@@ -193,14 +178,18 @@
 			specialTags[i].classList.add('offset')
 		}
 		setTimeout(function(){
-			findClosest()
+			findClosestAndRemoveOffset()
 		},2000)
-		window.onscroll = function(x){
+
+		window.addEventListener('scroll', function(x){
+			findClosestAndRemoveOffset()
+		})
+		window.addEventListener('scroll', function(x){
 			if(window.scrollY > 0){ topNavBar.classList.add('sticky') }
 			else{ topNavBar.classList.remove('sticky') } 
-			findClosest()
-		}	
-			function findClosest(){
+		})
+				
+		function findClosestAndRemoveOffset(){
 			let specialTags = document.querySelectorAll('[data-x]')
 			let minIndex = 0
 			for(let i=1; i<specialTags.length; i++){
