@@ -1,6 +1,6 @@
 setTimeout(function () {
     siteWelcome.classList.remove('active')
-}, 2000)
+}, 1000)
 
 let specialTags = document.querySelectorAll('[data-x]')
 for (let i = 0; i < specialTags.length; i++) {
@@ -8,7 +8,7 @@ for (let i = 0; i < specialTags.length; i++) {
 }
 setTimeout(function () {
     findClosestAndRemoveOffset()
-}, 2000)
+}, 1000)
 
 window.addEventListener('scroll', function (x) {
     findClosestAndRemoveOffset()
