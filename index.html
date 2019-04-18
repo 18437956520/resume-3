@@ -169,72 +169,50 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 	<script src="./init-swiper.js"></script>
+	<script src="./auto-slide-up.js"></script>
+	<script src="./sticky-topbar.js"></script>
 	<script>
 	  
-		setTimeout(function(){siteWelcome.classList.remove('active')},2000)
-
-		let specialTags = document.querySelectorAll('[data-x]')
-		for(let i=0; i<specialTags.length; i++){
-			specialTags[i].classList.add('offset')
-		}
-		setTimeout(function(){
-			findClosestAndRemoveOffset()
-		},2000)
-
-		window.addEventListener('scroll', function(x){
-			findClosestAndRemoveOffset()
-		})
-		window.addEventListener('scroll', function(x){
-			if(window.scrollY > 0){ topNavBar.classList.add('sticky') }
-			else{ topNavBar.classList.remove('sticky') } 
-		})
-				
-		function findClosestAndRemoveOffset(){
-			let specialTags = document.querySelectorAll('[data-x]')
-			let minIndex = 0
-			for(let i=1; i<specialTags.length; i++){
-				if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY))
-					minIndex = i	
-			}
-
-			specialTags[minIndex].classList.remove('offset')
-			let id = specialTags[minIndex].id
-			let a = document.querySelector('a[href="#'+ id +'"]')
-			let li = a.parentNode
-			let brothersAndMe = li.parentNode.children
-			for(let i=0; i<brothersAndMe.length; i++){
-				brothersAndMe[i].classList.remove('highlight')
-			}
-			li.classList.add('highlight')
-		}
 		
-			
-			
-		let liTags = document.getElementsByClassName('menuTigger')
-		for(let i=0; i<liTags.length; i++){
-			liTags[i].onmouseenter = function(x){ x.currentTarget.classList.add('active') }
-			liTags[i].onmouseleave = function(x){ x.currentTarget.classList.remove('active') } }
+				
+	
+let liTags = document.getElementsByClassName('menuTigger')
+for (let i = 0; i < liTags.length; i++) {
+    liTags[i].onmouseenter = function (x) {
+        x.currentTarget.classList.add('active')
+    }
+    liTags[i].onmouseleave = function (x) {
+        x.currentTarget.classList.remove('active')
+    }
+}
 
-		let aTags = document.querySelectorAll('nav>ul>li>a')
-		function animate(time) { requestAnimationFrame(animate); TWEEN.update(time); }
-				requestAnimationFrame(animate);
-		for(let i=0; i<aTags.length; i++){
-			aTags[i].onclick = function(x){
-				x.preventDefault()
-				let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTop
-				let currentTop = window.scrollY//窗口当前距顶部距离
-				let targetTop = top - 90//要到达的位置				
-				var coords = {y: currentTop}; //起始位置
-				var tween = new TWEEN.Tween(coords)//指定起始位置
-					.to({y: targetTop}, 1000)//结束位置和时间
-					.easing(TWEEN.Easing.Quartic.InOut)//缓动类型 在源文件中查找
-					.onUpdate(function() { 
-						window.scrollTo(0,coords.y)
-					}
-				)
-					.start();
-			}
-		}
+let aTags = document.querySelectorAll('nav>ul>li>a')
+
+function animate(time) {
+    requestAnimationFrame(animate);
+    TWEEN.update(time);
+}
+requestAnimationFrame(animate);
+for (let i = 0; i < aTags.length; i++) {
+    aTags[i].onclick = function (x) {
+        x.preventDefault()
+        let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTop
+        let currentTop = window.scrollY //窗口当前距顶部距离
+        let targetTop = top - 90 //要到达的位置				
+        var coords = {
+            y: currentTop
+        }; //起始位置
+        var tween = new TWEEN.Tween(coords) //指定起始位置
+            .to({
+                y: targetTop
+            }, 1000) //结束位置和时间
+            .easing(TWEEN.Easing.Quartic.InOut) //缓动类型 在源文件中查找
+            .onUpdate(function () {
+                window.scrollTo(0, coords.y)
+            })
+            .start();
+    }
+}
 	</script>
 	<script src="./clicklove.js"></script>
 </body>
